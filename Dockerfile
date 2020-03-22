@@ -24,7 +24,10 @@ ENV DEPS gcc \
         libopenexr-dev \
         libtiff-dev \
         libwebp-dev \
-	qt5-default
+	qt5-default \
+        wget \
+	vim \
+	unzip
          
 RUN apt-get update && \
     apt-get install -y --no-install-recommends $DEPS && \
@@ -32,7 +35,9 @@ RUN apt-get update && \
 
 WORKDIR $cwd
 
-RUN git clone https://github.com/opencv/opencv.git && \
+RUN wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-1.4.0%2Bcpu.zip && \
+    unzip libtorch-shared-with-deps-1.4.0+cpu.zip && \
+    git clone https://github.com/opencv/opencv.git && \
     git clone https://github.com/opencv/opencv_contrib.git && \
     cd opencv && \
     git checkout 4.2.0 && \
