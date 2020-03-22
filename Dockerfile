@@ -31,7 +31,8 @@ ENV DEPS gcc \
          
 RUN apt-get update && \
     apt-get install -y --no-install-recommends $DEPS && \
-    pip3 install torch==1.4.0+cpu torchvision==0.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+    pip3 install torch==1.4.0+cpu torchvision==0.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html && \
+    pip3 install numpy
 
 WORKDIR $cwd
 
