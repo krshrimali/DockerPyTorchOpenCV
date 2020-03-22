@@ -1,4 +1,5 @@
-# cv_pytorch_docker
+# Docker-PyTorch-OpenCV
+
 Dockerfile for an Image installed with OpenCV and Pytorch for a hassle-free development environment.
 
 Steps to Build the Image from the *Dockerfile* :
