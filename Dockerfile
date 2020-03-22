@@ -51,3 +51,7 @@ RUN wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-1.4
 	-DBUILD_EXAMPLES=ON .. && \
     make && \
     make install
+
+ADD test-libraries.sh $cwd/test-libraries.sh
+
+RUN sh $cwd/test-libraries.sh
