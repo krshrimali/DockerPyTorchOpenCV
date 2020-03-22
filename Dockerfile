@@ -23,7 +23,8 @@ ENV DEPS gcc \
         libjpeg-dev \
         libopenexr-dev \
         libtiff-dev \
-        libwebp-dev
+        libwebp-dev \
+	qt5-default
          
 RUN apt-get update && \
     apt-get install -y --no-install-recommends $DEPS && \
@@ -32,10 +33,16 @@ RUN apt-get update && \
 WORKDIR $cwd
 
 RUN git clone https://github.com/opencv/opencv.git && \
+    git clone https://github.com/opencv/opencv_contrib.git && \
     cd opencv && \
+    git checkout 4.2.0 && \
+    cd ../opencv_contrib && \
+    git checkout 4.2.0 && \
+    cd ../opencv && \
     mkdir -p build && \
     cd build && \
-    cmake ../ && \
+    cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_C_EXAMPLES=ON -DINSTALL_PYTHON_EXAMPLES=ON \
+	-DWITH_TBB=ON -DWITH_V4L=ON -DWITH_QT=ON -DWITH_OPENGL=ON -DOPENCV_EXTRA_MODULES=../../opencv_contrib/modules \
+	-DBUILD_EXAMPLES=ON .. && \
     make && \
     make install
-
