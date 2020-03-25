@@ -4,9 +4,8 @@ Dockerfile for an Image installed with OpenCV and Pytorch for a hassle-free deve
 
 Steps to Build the Image from the *Dockerfile* :
 
-* Open terminal.
-* Clone or download the repository on your local machine. ` git clone https://github.com/BuffetCodes/DockerPyTorchOpenCV.git `
-* Navigate to the downloaded folder using ` cd cv_pytorch_docker `
+* Clone or download the repository on your local machine: `git clone https://github.com/BuffetCodes/DockerPyTorchOpenCV.git`
+* Navigate to the cloned repo using: `cd DockerPyTorchOpenCV`
 * Build the image using: `sudo docker build . `(*do not forget the period after build !*)
 * Once the image has been created, run it using: `sudo docker run -it --rm <image_ID> `
 * The command line interface of the container can then be used for working on OpenCV and Pytorch related projects.
