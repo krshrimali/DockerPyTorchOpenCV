@@ -12,6 +12,8 @@ ENV DEPS gcc \
          python3-dev \
          python3-pip \
          python3-numpy \
+         python3-matplotlib \
+         python3-pil \
         # python3-opencv \
         libavcodec-dev \
         libavformat-dev \
@@ -31,13 +33,13 @@ ENV DEPS gcc \
          
 RUN apt-get update && \
     apt-get install -y --no-install-recommends $DEPS && \
-    pip3 install torch==1.4.0+cpu torchvision==0.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html && \
-    pip3 install numpy
+    pip3 install torch==1.4.0+cpu torchvision==0.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html 
 
 WORKDIR $cwd
 
 RUN wget https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.4.0%2Bcpu.zip && \
     unzip libtorch-cxx11-abi-shared-with-deps-1.4.0+cpu.zip && \
+    rm libtorch-cxx11-abi-shared-with-deps-1.4.0+cpu.zip && \
     git clone https://github.com/opencv/opencv.git && \
     git clone https://github.com/opencv/opencv_contrib.git && \
     cd opencv && \
