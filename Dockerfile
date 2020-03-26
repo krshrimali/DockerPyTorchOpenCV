@@ -36,8 +36,8 @@ RUN apt-get update && \
 
 WORKDIR $cwd
 
-RUN wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-1.4.0%2Bcpu.zip && \
-    unzip libtorch-shared-with-deps-1.4.0+cpu.zip && \
+RUN wget https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.4.0%2Bcpu.zip && \
+    unzip libtorch-cxx11-abi-shared-with-deps-1.4.0+cpu.zip && \
     git clone https://github.com/opencv/opencv.git && \
     git clone https://github.com/opencv/opencv_contrib.git && \
     cd opencv && \
